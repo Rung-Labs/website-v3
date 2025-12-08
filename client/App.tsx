@@ -33,8 +33,8 @@ const App: React.FC = () => {
         {/* Main Card */}
         {/* Updated to work with black/white gradient background */}
         <div
-          className="relative w-full max-w-[1600px] mx-auto bg-white/10 backdrop-blur-md rounded-[2.5rem] border border-white/20 shadow-[0_0_60px_-12px_rgba(255,255,255,0.2)] flex flex-col items-center justify-center p-4 md:p-6 overflow-hidden"
-          style={{ width: "min(70vw, 1000px)", height: "min(55vh, 1000px)" }}
+          className="relative w-full max-w-[1600px] mx-auto bg-white/10 backdrop-blur-md rounded-[2.5rem] border border-white/20 shadow-[0_0_60px_-12px_rgba(255,255,255,0.2)] flex flex-col items-center justify-center px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10 overflow-hidden"
+          style={{ width: "clamp(320px, 72vw, 960px)" }}
         >
           {/* Card Corner Accents - White Glow */}
           <div className="absolute top-8 left-8 w-3 h-3 border-l border-t border-white/50"></div>
@@ -45,16 +45,16 @@ const App: React.FC = () => {
           {/* Hero Content */}
           <div className="flex flex-col items-center text-center z-10 w-full max-w-4xl gap-2 py-2">
             {/* Eye-catching heading */}
-            <h1 className="text-3xl font-bold text-white drop-shadow-2xl tracking-tight leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white drop-shadow-2xl tracking-tight leading-tight">
               The wait is part of the journey.
             </h1>
 
             {/* Logo Section */}
             <div className="transform hover:scale-105 transition-transform duration-500 drop-shadow-2xl">
-              <RungLogo />
+              <RungLogo className="max-w-[120px] sm:max-w-[150px]" />
             </div>
 
-            <p className="text-white/90 text-base sm:text-md leading-relaxed font-light drop-shadow-md max-w-xl">
+            <p className="text-white/90 text-sm sm:text-base md:text-lg leading-relaxed font-light drop-shadow-md max-w-xl">
               Rung. Climb the ladder. Join the waitlist to be among the first to
               experience the future with Rung Labs.
             </p>
