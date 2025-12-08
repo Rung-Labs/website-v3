@@ -52,7 +52,7 @@ export const WaitlistForm: React.FC = () => {
   };
 
   const formWrapperClasses =
-    "w-full max-w-[360px] sm:max-w-[460px] mx-auto relative group z-20";
+    "w-full max-w-[260px] sm:max-w-[360px] mx-auto relative group z-20";
 
   if (loadingState === LoadingState.SUCCESS) {
     return (
@@ -70,7 +70,7 @@ export const WaitlistForm: React.FC = () => {
   return (
     <form onSubmit={handleSubmit} className={formWrapperClasses}>
       {/* Enhanced container with better styling */}
-      <div className="relative flex flex-col sm:flex-row items-stretch sm:items-center gap-2 px-2 py-2 bg-white/10 border border-white/30 rounded-xl shadow-2xl focus-within:border-white/50 focus-within:ring-2 focus-within:ring-white/40 transition-all duration-300 backdrop-blur-lg">
+      <div className="relative flex flex-row flex-wrap items-center gap-2 px-2 py-2 bg-white/10 border border-white/30 rounded-xl shadow-2xl focus-within:border-white/50 focus-within:ring-2 focus-within:ring-white/40 transition-all duration-300 backdrop-blur-lg">
         <input
           type="email"
           value={email}
@@ -78,27 +78,36 @@ export const WaitlistForm: React.FC = () => {
           placeholder="Enter your email"
           required
           disabled={loadingState === LoadingState.LOADING}
-          className="flex-1 h-10 pl-3 pr-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/60 focus:outline-none focus:bg-white/10 focus:border-white/30 font-medium tracking-wide text-sm transition-all duration-300"
+          className="flex-1 h-10 min-w-0 pl-3 pr-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/70 focus:outline-none focus:bg-white/10 focus:border-white/30 font-medium tracking-wide text-xs sm:text-sm transition-all duration-300"
         />
         <button
           type="submit"
           disabled={loadingState === LoadingState.LOADING}
           className={`
-            h-10 md:h-12 px-6 rounded-lg font-bold text-sm md:text-base transition-all duration-300 flex items-center justify-center gap-2 shadow-xl whitespace-nowrap
+            h-10 w-10 ml-auto flex items-center justify-center rounded-full transition-transform duration-300 shadow-xl
             ${
               loadingState === LoadingState.LOADING
                 ? "bg-white/10 text-white/40 cursor-not-allowed"
-                : "bg-white text-gray-900 hover:bg-gray-100 hover:scale-105 hover:shadow-2xl active:scale-100 font-semibold border border-white/20"
+                : "bg-white text-gray-900 hover:bg-gray-100 hover:shadow-2xl active:scale-95 border border-white/20"
             }
           `}
         >
           {loadingState === LoadingState.LOADING ? (
-            <>
-              <Loader2 className="w-5 h-5 animate-spin" />
-              <span>Joining...</span>
-            </>
+            <Loader2 className="w-5 h-5 animate-spin" />
           ) : (
-            <span>Join Waitlist</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              className="w-5 h-5"
+              stroke="currentColor"
+              fill="none"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M5 12h12" />
+              <path d="M13 6l6 6-6 6" />
+            </svg>
           )}
         </button>
       </div>

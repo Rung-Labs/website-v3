@@ -33,28 +33,28 @@ const App: React.FC = () => {
         {/* Main Card */}
         {/* Updated to work with black/white gradient background */}
         <div
-          className="relative w-full max-w-[1600px] mx-auto bg-white/10 backdrop-blur-md rounded-[2.5rem] border border-white/20 shadow-[0_0_60px_-12px_rgba(255,255,255,0.2)] flex flex-col items-center justify-center px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10 overflow-hidden"
-          style={{ width: "clamp(320px, 72vw, 960px)" }}
+          className="relative w-full mx-auto bg-white/10 backdrop-blur-md rounded-[2rem] border border-white/20 shadow-[0_0_60px_-12px_rgba(255,255,255,0.2)] flex flex-col items-center justify-center px-4 py-3 sm:px-5 sm:py-6 md:px-6 md:py-7 overflow-hidden"
+          style={{ width: "clamp(280px, 78vw, 640px)" }}
         >
           {/* Card Corner Accents - White Glow */}
-          <div className="absolute top-8 left-8 w-3 h-3 border-l border-t border-white/50"></div>
-          <div className="absolute top-8 right-8 w-3 h-3 border-r border-t border-white/50"></div>
-          <div className="absolute bottom-8 left-8 w-3 h-3 border-l border-b border-white/50"></div>
-          <div className="absolute bottom-8 right-8 w-3 h-3 border-r border-b border-white/50"></div>
+          <div className="absolute top-6 left-6 sm:top-8 sm:left-8 w-3 h-3 border-l border-t border-white/50 z-20 pointer-events-none"></div>
+          <div className="absolute top-6 right-6 sm:top-8 sm:right-8 w-3 h-3 border-r border-t border-white/50 z-20 pointer-events-none"></div>
+          <div className="absolute bottom-6 left-6 sm:bottom-8 sm:left-8 w-3 h-3 border-l border-b border-white/50 z-20 pointer-events-none"></div>
+          <div className="absolute bottom-6 right-6 sm:bottom-8 sm:right-8 w-3 h-3 border-r border-b border-white/50 z-20 pointer-events-none"></div>
 
           {/* Hero Content */}
-          <div className="flex flex-col items-center text-center z-10 w-full max-w-4xl gap-2 py-2">
+          <div className="flex flex-col items-center text-center z-10 w-full max-w-4xl py-4 px-8 sm:px-12">
             {/* Eye-catching heading */}
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white drop-shadow-2xl tracking-tight leading-tight">
+            <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white drop-shadow-2xl tracking-tight leading-tight">
               The wait is part of the journey.
             </h1>
 
             {/* Logo Section */}
             <div className="transform hover:scale-105 transition-transform duration-500 drop-shadow-2xl">
-              <RungLogo className="max-w-[120px] sm:max-w-[150px]" />
+              <RungLogo className="max-w-[40px] sm:max-w-[70px] md:max-w-[100px]" />
             </div>
 
-            <p className="text-white/90 text-sm sm:text-base md:text-lg leading-relaxed font-light drop-shadow-md max-w-xl">
+            <p className="text-white/90 text-xs sm:text-sm md:text-base leading-relaxed font-light drop-shadow-md max-w-lg mb-3">
               Rung. Climb the ladder. Join the waitlist to be among the first to
               experience the future with Rung Labs.
             </p>
@@ -62,23 +62,23 @@ const App: React.FC = () => {
             <WaitlistForm />
 
             {/* Social Proof */}
-            <div className="mt-4 flex items-center justify-center gap-4 text-[0.7rem]">
+            <div className="mt-3 flex items-center justify-center gap-3 text-[0.65rem]">
               <div className="flex -space-x-3">
-                <div className="w-8 h-8 rounded-full border-2 border-sky-800 bg-gradient-to-br from-cyan-400 to-blue-600 overflow-hidden relative shadow-lg">
+                <div className="w-7 h-7 rounded-full border-2 border-sky-800 bg-gradient-to-br from-cyan-400 to-blue-600 overflow-hidden relative shadow-lg">
                   <img
                     src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix"
                     alt="User"
                     className="opacity-90 mix-blend-multiply"
                   />
                 </div>
-                <div className="w-8 h-8 rounded-full border-2 border-sky-800 bg-gradient-to-br from-purple-400 to-blue-600 overflow-hidden relative shadow-lg">
+                <div className="w-7 h-7 rounded-full border-2 border-sky-800 bg-gradient-to-br from-purple-400 to-blue-600 overflow-hidden relative shadow-lg">
                   <img
                     src="https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka"
                     alt="User"
                     className="opacity-90 mix-blend-multiply"
                   />
                 </div>
-                <div className="w-8 h-8 rounded-full border-2 border-sky-800 bg-gradient-to-br from-blue-400 to-teal-600 overflow-hidden relative shadow-lg">
+                <div className="w-7 h-7 rounded-full border-2 border-sky-800 bg-gradient-to-br from-blue-400 to-teal-600 overflow-hidden relative shadow-lg">
                   <img
                     src="https://api.dicebear.com/7.x/avataaars/svg?seed=Mark"
                     alt="User"
@@ -102,7 +102,7 @@ const App: React.FC = () => {
               rel="noopener noreferrer"
               className="hover:text-white hover:scale-110 transition-all drop-shadow-sm"
             >
-              <Instagram size={30} />
+              <Instagram size={26} />
             </a>
           )}
           {socialLinks.tiktok && (
@@ -112,7 +112,7 @@ const App: React.FC = () => {
               rel="noopener noreferrer"
               className="hover:text-white hover:scale-110 transition-all drop-shadow-sm"
             >
-              <TikTokIcon className="w-8 h-8" />
+              <TikTokIcon className="w-6 h-6 sm:w-7 sm:h-7" />
             </a>
           )}
           {socialLinks.youtube && (
@@ -122,7 +122,7 @@ const App: React.FC = () => {
               rel="noopener noreferrer"
               className="hover:text-white hover:scale-110 transition-all drop-shadow-sm"
             >
-              <Youtube size={30} />
+              <Youtube size={26} />
             </a>
           )}
           {socialLinks.twitter && (
@@ -132,7 +132,7 @@ const App: React.FC = () => {
               rel="noopener noreferrer"
               className="hover:text-white hover:scale-110 transition-all drop-shadow-sm"
             >
-              <Twitter size={30} />
+              <Twitter size={26} />
             </a>
           )}
         </div>
