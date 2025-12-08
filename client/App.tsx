@@ -29,10 +29,13 @@ const App: React.FC = () => {
       <Background />
 
       {/* Main Content Container */}
-      <div className="relative z-10 w-full max-w-[98%] mx-auto px-4 flex flex-col items-center">
+      <div className="relative z-10 w-full max-w-[98%] mx-auto px-4 sm:px-6 flex flex-col items-center">
         {/* Main Card */}
         {/* Updated to work with black/white gradient background */}
-        <div className="relative w-full max-w-[1600px] mx-auto bg-white/10 backdrop-blur-md rounded-[2.5rem] border border-white/20 shadow-[0_0_60px_-12px_rgba(255,255,255,0.2)] flex flex-col items-center justify-center p-8 md:p-12 overflow-hidden">
+        <div
+          className="relative w-full max-w-[1600px] mx-auto bg-white/10 backdrop-blur-md rounded-[2.5rem] border border-white/20 shadow-[0_0_60px_-12px_rgba(255,255,255,0.2)] flex flex-col items-center justify-center p-4 md:p-6 overflow-hidden"
+          style={{ width: "min(70vw, 1000px)", height: "min(55vh, 1000px)" }}
+        >
           {/* Card Corner Accents - White Glow */}
           <div className="absolute top-8 left-8 w-3 h-3 border-l border-t border-white/50"></div>
           <div className="absolute top-8 right-8 w-3 h-3 border-r border-t border-white/50"></div>
@@ -40,26 +43,26 @@ const App: React.FC = () => {
           <div className="absolute bottom-8 right-8 w-3 h-3 border-r border-b border-white/50"></div>
 
           {/* Hero Content */}
-          <div className="flex flex-col items-center text-center z-10 w-full max-w-5xl">
+          <div className="flex flex-col items-center text-center z-10 w-full max-w-4xl gap-2 py-2">
             {/* Eye-catching heading */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-2xl tracking-tight leading-tight">
+            <h1 className="text-3xl font-bold text-white drop-shadow-2xl tracking-tight leading-tight">
               The wait is part of the journey.
             </h1>
 
             {/* Logo Section */}
-            <div className="mb-6 transform hover:scale-105 transition-transform duration-500 drop-shadow-2xl">
+            <div className="transform hover:scale-105 transition-transform duration-500 drop-shadow-2xl">
               <RungLogo />
             </div>
 
-            <p className="text-white/90 mb-8 text-xl md:text-2xl leading-relaxed font-light drop-shadow-md max-w-2xl">
-              Rung. Climb the ladder. Join the waitlist and be among the first
-              to experience the future of AI with Rung Labs.
+            <p className="text-white/90 text-base sm:text-md leading-relaxed font-light drop-shadow-md max-w-xl">
+              Rung. Climb the ladder. Join the waitlist to be among the first to
+              experience the future with Rung Labs.
             </p>
 
             <WaitlistForm />
 
             {/* Social Proof */}
-            <div className="mt-8 flex items-center justify-center gap-4">
+            <div className="mt-4 flex items-center justify-center gap-4 text-[0.7rem]">
               <div className="flex -space-x-3">
                 <div className="w-8 h-8 rounded-full border-2 border-sky-800 bg-gradient-to-br from-cyan-400 to-blue-600 overflow-hidden relative shadow-lg">
                   <img
@@ -91,7 +94,7 @@ const App: React.FC = () => {
         </div>
 
         {/* Footer Icons: Instagram, TikTok, YouTube, Twitter */}
-        <div className="mt-8 flex gap-8 text-white/70">
+        <div className="mt-4 flex gap-6 text-white/70">
           {socialLinks.instagram && (
             <a
               href={socialLinks.instagram}
@@ -99,7 +102,7 @@ const App: React.FC = () => {
               rel="noopener noreferrer"
               className="hover:text-white hover:scale-110 transition-all drop-shadow-sm"
             >
-              <Instagram size={40} />
+              <Instagram size={30} />
             </a>
           )}
           {socialLinks.tiktok && (
@@ -109,7 +112,7 @@ const App: React.FC = () => {
               rel="noopener noreferrer"
               className="hover:text-white hover:scale-110 transition-all drop-shadow-sm"
             >
-              <TikTokIcon className="w-10 h-10" />
+              <TikTokIcon className="w-8 h-8" />
             </a>
           )}
           {socialLinks.youtube && (
@@ -119,7 +122,7 @@ const App: React.FC = () => {
               rel="noopener noreferrer"
               className="hover:text-white hover:scale-110 transition-all drop-shadow-sm"
             >
-              <Youtube size={40} />
+              <Youtube size={30} />
             </a>
           )}
           {socialLinks.twitter && (
@@ -129,7 +132,7 @@ const App: React.FC = () => {
               rel="noopener noreferrer"
               className="hover:text-white hover:scale-110 transition-all drop-shadow-sm"
             >
-              <Twitter size={40} />
+              <Twitter size={30} />
             </a>
           )}
         </div>

@@ -51,34 +51,26 @@ export const WaitlistForm: React.FC = () => {
     }
   };
 
+  const formWrapperClasses =
+    "w-full max-w-[360px] sm:max-w-[460px] mx-auto relative group z-20";
+
   if (loadingState === LoadingState.SUCCESS) {
     return (
-      <div className="w-full max-w-md mx-auto p-1 animate-in fade-in zoom-in duration-500">
-        <div className="bg-gradient-to-b from-white/20 to-white/10 border border-white/30 rounded-xl p-6 backdrop-blur-md shadow-2xl">
-          <div className="flex flex-col items-center text-center space-y-3">
-            <div className="relative">
-              <div className="absolute inset-0 bg-cyan-400/40 blur-xl rounded-full"></div>
-              <CheckCircle2 className="w-10 h-10 text-white relative z-10 drop-shadow-md" />
-            </div>
-            <h3 className="text-lg font-display font-bold text-white drop-shadow-sm">
-              You're on the list.
-            </h3>
-            <p className="text-white/80 font-medium italic text-sm">
-              "{successMessage}"
-            </p>
-          </div>
+      <div className={formWrapperClasses}>
+        <div className="relative flex flex-row items-center justify-center gap-2 px-3 py-2 bg-white/10 border border-white/30 rounded-xl shadow-2xl backdrop-blur-lg h-10">
+          <CheckCircle2 className="w-4 h-4 text-green-400 drop-shadow-md flex-shrink-0" />
+          <span className="text-xs sm:text-sm font-medium text-white drop-shadow-sm whitespace-nowrap">
+            You're on the list!
+          </span>
         </div>
       </div>
     );
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="w-full max-w-2xl mx-auto relative group z-20"
-    >
+    <form onSubmit={handleSubmit} className={formWrapperClasses}>
       {/* Enhanced container with better styling */}
-      <div className="relative flex flex-col sm:flex-row items-stretch sm:items-center gap-4 p-3 bg-white/10 border border-white/30 rounded-2xl shadow-2xl focus-within:border-white/50 focus-within:ring-2 focus-within:ring-white/40 transition-all duration-300 backdrop-blur-lg">
+      <div className="relative flex flex-col sm:flex-row items-stretch sm:items-center gap-2 px-2 py-2 bg-white/10 border border-white/30 rounded-xl shadow-2xl focus-within:border-white/50 focus-within:ring-2 focus-within:ring-white/40 transition-all duration-300 backdrop-blur-lg">
         <input
           type="email"
           value={email}
@@ -86,13 +78,13 @@ export const WaitlistForm: React.FC = () => {
           placeholder="Enter your email"
           required
           disabled={loadingState === LoadingState.LOADING}
-          className="flex-1 h-14 md:h-16 pl-6 pr-6 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/60 focus:outline-none focus:bg-white/10 focus:border-white/30 font-medium tracking-wide text-lg transition-all duration-300"
+          className="flex-1 h-10 pl-3 pr-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/60 focus:outline-none focus:bg-white/10 focus:border-white/30 font-medium tracking-wide text-sm transition-all duration-300"
         />
         <button
           type="submit"
           disabled={loadingState === LoadingState.LOADING}
           className={`
-            h-14 md:h-16 px-10 rounded-xl font-bold text-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-xl whitespace-nowrap
+            h-10 md:h-12 px-6 rounded-lg font-bold text-sm md:text-base transition-all duration-300 flex items-center justify-center gap-2 shadow-xl whitespace-nowrap
             ${
               loadingState === LoadingState.LOADING
                 ? "bg-white/10 text-white/40 cursor-not-allowed"

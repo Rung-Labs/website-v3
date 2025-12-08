@@ -2,10 +2,22 @@ import React, { useEffect, useRef } from "react";
 
 export const Background: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas || isMobile) return;
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
@@ -162,7 +174,11 @@ export const Background: React.FC = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [isMobile]);
+
+  if (isMobile) {
+    return null;
+  }
 
   return (
     <canvas ref={canvasRef} className="fixed inset-0 z-0 pointer-events-none" />

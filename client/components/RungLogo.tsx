@@ -9,7 +9,7 @@ export const RungLogo: React.FC<{ className?: string }> = ({
       <img
         src={logoImage}
         alt="Rung Logo"
-        className="h-auto w-auto max-w-[400px]"
+        className="h-auto w-auto max-w-[200px]"
       />
     </div>
   );
